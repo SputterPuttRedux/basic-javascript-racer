@@ -9,7 +9,7 @@ function Player(id){
 }
 
 Player.prototype.move = function(){
-  this.position += 10;
+  this.position += 20;
 };
 
 Player.prototype.updatePosition = function(){
