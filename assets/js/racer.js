@@ -19,7 +19,7 @@ Player.prototype.updatePosition = function(){
 
 function checkWinner(player, game){
   if( player.position > game.finishLine ){
-    alert("somebody won!");
+    alert("Player " + player.player.id + " has won!");
   }
 }
 
