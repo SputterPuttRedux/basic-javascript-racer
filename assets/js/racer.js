@@ -2,36 +2,33 @@ function Game(){
   this.$track = $('#racetrack');
 }
 
-function Player(track, id){
-  this.$track = track;
-  this.$player = $('.player')[id - 1];
-  this.x = 10;
+function Player(id){
+  this.player = $('.player')[id - 1];
+  this.position = 10;
 }
 
 Player.prototype.move = function(){
-  $player = $(this.$player);
-  x = this.x;
-
-  if ( $player.attr('id') === "1" ) {
-
-    Mousetrap.bind('p', function() {
-      x += 10;
-      $player.css('margin-left', x);
-    });
-  } else if ( $player.attr('id') === "2" ) {
-
-    Mousetrap.bind('q', function() {
-      x += 10;
-      $player.css('margin-left', x);
-    });
-  }
+  this.position += 10;
 };
 
-Player.prototype.choosePlayer = function(id){
-  $player = this.$player[id - 1];
-  return $player;
+Player.prototype.updatePosition = function(){
+  $player = $(this.player);
+  $player.css('margin-left', this.position);
 };
 
-// $(document).ready(function(){
 
-// });
+$(document).ready(function() {
+    var game = new Game();
+    var player1 = new Player(1);
+    var player2 = new Player(2);
+
+    $(document).on('keyup', function(keyPress){
+      if(keyPress.keyCode === 80) {
+        player1.move();
+        player1.updatePosition();
+      } else if (keyPress.keyCode === 81) {
+        player2.move();
+        player2.updatePosition();
+      }
+    });
+  });
