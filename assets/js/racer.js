@@ -1,5 +1,6 @@
 function Game(){
   this.$track = $('#racetrack');
+  this.finishLine = this.$track.width() - 54;
 }
 
 function Player(id){
