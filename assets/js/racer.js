@@ -3,10 +3,16 @@ function Game(){
   this.finishLine = this.$track.width() - 54;
 }
 
-function Player(id){
+function Player(id,img){
   this.player = $('.player')[id - 1];
   this.position = 10;
+  this.img = img;
 }
+
+Player.prototype.updateImage = function(){
+  $player = $(this.player);
+  $player.css('background-image', 'url(' + this.img + ')');
+};
 
 Player.prototype.move = function(){
   this.position += 20;
@@ -30,16 +36,25 @@ function checkWinner(player, game){
 
 $(document).ready(function() {
     var game = new Game();
-    var player1 = new Player(1);
-    var player2 = new Player(2);
+    var player1 = new Player(1, "./assets/img/nyanCat.gif");
+    var player2 = new Player(2, "./assets/img/zombieCat.gif");
+
+    player1.updateImage();
+    player2.updateImage();
 
     $(document).on('keyup', function(keyPress){
+      console.log("Finish line coordinates: " + game.finishLine);
+
       if(keyPress.keyCode === 80) {
         player1.move();
         player1.updatePosition();
+        console.log("P1: " + player1.position);
+        checkWinner(player1, game);
       } else if (keyPress.keyCode === 81) {
         player2.move();
         player2.updatePosition();
+        console.log("P2: " + player2.position);
+        checkWinner(player2, game);
       }
     });
   });
