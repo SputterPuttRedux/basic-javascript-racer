@@ -19,7 +19,11 @@ Player.prototype.updatePosition = function(){
 
 function checkWinner(player, game){
   if( player.position > game.finishLine ){
-    window.confirm("Player " + player.player.id + " has won!" + "\n Play Again?");
+    var again = window.confirm("Player " + player.player.id + " has won!" + "\n Play Again?");
+
+    if (again === true) {
+      location.reload(document);
+    }
   }
 }
 
