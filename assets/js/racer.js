@@ -17,6 +17,10 @@ Player.prototype.updatePosition = function(){
   $player.css('margin-left', this.position);
 };
 
+Player.prototype.checkWinner = function(){
+
+};
+
 
 $(document).ready(function() {
     var game = new Game();
