@@ -24,15 +24,22 @@ Player.prototype.updatePosition = function(){
 };
 
 function checkWinner(player, game){
-  if( player.position > game.finishLine ){
-    var again = window.confirm("Player " + player.player.id + " has won!" + "\n Play Again?");
+  var $modal_message = $('.lead');
 
-    if (again === true) {
-      location.reload(document);
-    }
+  if( player.position > game.finishLine ){
+    // var again = window.confirm("Player " + player.player.id + " has won!" + "\n Play Again?");
+    $('.hacky-workaround').click();
+    $modal_message.html("Player " + player.player.id + " has won!" + "\n Play Again?");
+    // if (again === true) {
+    //   location.reload(document);
+    // }
   }
 }
 
+function wikipediaRedirect(){
+  window.location.replace("http://en.wikipedia.org/wiki/Special:Random");
+  return false;
+};
 
 $(document).ready(function() {
     var game = new Game();
