@@ -50,18 +50,24 @@ $(document).ready(function() {
     player2.updateImage();
 
     $(document).on('keyup', function(keyPress){
-      console.log("Finish line coordinates: " + game.finishLine);
 
       if(keyPress.keyCode === 80) {
         player1.move();
         player1.updatePosition();
-        console.log("P1: " + player1.position);
         checkWinner(player1, game);
       } else if (keyPress.keyCode === 81) {
         player2.move();
         player2.updatePosition();
-        console.log("P2: " + player2.position);
         checkWinner(player2, game);
       }
+    });
+
+    // $('.no-button').click(function (){
+    //   window.location.replace("http://en.wikipedia.org/wiki/Special:Random");
+    //   return false;
+    // });
+
+    $('.no-button').click(function (){
+      var timedRedirct = setInterval(wikipediaRedirect, 2500);
     });
   });
