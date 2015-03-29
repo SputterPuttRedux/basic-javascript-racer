@@ -18,18 +18,23 @@ Player.prototype.move = function(){
   this.position += 20;
 };
 
+Player.prototype.stop = function(){
+  this.position -= 20;
+};
+
 Player.prototype.updatePosition = function(){
   $player = $(this.player);
   $player.css('margin-left', this.position);
 };
 
 function checkWinner(player, game){
-  var $modal_message = $('.lead');
+  $('.lead').html("Player " + player.player.id + " has won!" + "\n Play Again?");
 
   if( player.position > game.finishLine ){
     // var again = window.confirm("Player " + player.player.id + " has won!" + "\n Play Again?");
-    $('.hacky-workaround').click();
-    $modal_message.html("Player " + player.player.id + " has won!" + "\n Play Again?");
+    player.stop();
+    $('.hacky-workaround').click($('#myModal').foundation('reveal','open'));
+
     // if (again === true) {
     //   location.reload(document);
     // }
