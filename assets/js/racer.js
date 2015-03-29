@@ -1,6 +1,6 @@
 function Game(){
   this.$track = $('#racetrack');
-  this.finishLine = this.$track.width() - 54;
+  this.finishLine = this.$track.width() - 90;
 }
 
 function Player(id,img){
