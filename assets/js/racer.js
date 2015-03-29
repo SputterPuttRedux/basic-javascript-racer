@@ -42,14 +42,15 @@ function checkWinner(player, game){
 }
 
 function wikipediaRedirect(){
-  window.location.replace("http://en.wikipedia.org/wiki/Special:Random");
+  window.location = "http://en.wikipedia.org/wiki/Special:Random";
   return false;
-};
+}
 
 $(document).ready(function() {
     var game = new Game();
     var player1 = new Player(1, "./assets/img/nyanCat.gif");
     var player2 = new Player(2, "./assets/img/zombieCat.gif");
+    var $modal_message =
 
     player1.updateImage();
     player2.updateImage();
