@@ -1,9 +1,9 @@
 #racetrack {
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   height: 150px;
-  background-image: url("../img/nyanBackground.jpg");
+  background-image: url("../img/finishBackground.png");
   background-size: 100%;
-  /*background-repeat: no-repeat;*/
+  background-repeat: no-repeat;
 }
 
 /* foundation-compliant css to align the div vertically.  found on */
