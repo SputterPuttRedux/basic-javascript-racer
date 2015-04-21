@@ -64,11 +64,6 @@ $(document).ready(function() {
       }
     });
 
-    // $('.no-button').click(function (){
-    //   window.location.replace("http://en.wikipedia.org/wiki/Special:Random");
-    //   return false;
-    // });
-
     $('.no-button').click(function (){
       var timedRedirct = setInterval(wikipediaRedirect, 2500);
     });
