@@ -45,10 +45,11 @@ $(document).ready(function() {
     var game = new Game();
     var player1 = new Player(1, "./assets/img/nyanCat.gif");
     var player2 = new Player(2, "./assets/img/zombieCat.gif");
-    var $modal_message =
 
     player1.updateImage();
     player2.updateImage();
+
+    $('.upon-entry').click();
 
     $(document).on('keyup', function(keyPress){
 
