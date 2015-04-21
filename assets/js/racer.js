@@ -31,13 +31,8 @@ function checkWinner(player, game){
   $('.lead').html("Player " + player.player.id + " has won!" + "\n Play Again?");
 
   if( player.position > game.finishLine ){
-    // var again = window.confirm("Player " + player.player.id + " has won!" + "\n Play Again?");
     player.stop();
     $('.hacky-workaround').click($('#myModal').foundation('reveal','open'));
-
-    // if (again === true) {
-    //   location.reload(document);
-    // }
   }
 }
 
